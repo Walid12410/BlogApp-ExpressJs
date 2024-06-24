@@ -53,9 +53,17 @@ This repository contains the backend code for a Blog App built with Express.js a
 
 ## API Endpoints
 
+- **Auth Routes**:
+    - POST /api/auth/register: Register a new user.
+    - POST /api/auth/login: Authenticate a user and return a token.
+
 - **User Routes**:
-    - POST /api/users/register: Register a new user.
-    - POST /api/users/login: Authenticate a user and return a token.
+    - GET /api/users/profile: Get all User.
+    - GET /api/users/profile/:id: Get user and post by ID.
+    - PUT /api/users/profile/:id: Update a User Profile by ID.
+    - DELETE /api/users/profile/:id: Delete a User by ID.
+    - GET /api/users/count: Count Post
+    - POST /api/users/profile/profile-photo-upload: Upload Image
 
 - **Post Routes**:
     - GET /api/posts: Get all posts.
@@ -63,10 +71,16 @@ This repository contains the backend code for a Blog App built with Express.js a
     - GET /api/posts/:id: Get a single post by ID.
     - PUT /api/posts/:id: Update a post by ID.
     - DELETE /api/posts/:id: Delete a post by ID.
+    - GET /api/post/count: Count Post
+    - PUT /api/posts/update-image: Upload Image
 
 - **Like Routes**:
     - PUT /api/posts/like/:id: Toggle like on a post.
 
+- **Comments Routes**:
+    - ////.
+
+  
 ## Middleware
 
 - **Auth Middleware**: Protect routes by verifying JWT tokens.
