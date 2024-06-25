@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { createCommentController, getAllCommentsController, deleteCommentsController } = require("../controller/commentsController");
+const { createCommentController, getAllCommentsController, deleteCommentsController, updateCommentController } = require("../controller/commentsController");
 const {verifyToken, verifyTokenAndAdmin} = require("../middlewares/verifyToken");
 const validateObjectId = require("../middlewares/validateObjectId");
 
@@ -11,6 +11,7 @@ router.route("/")
 
 // /api/comments/:id
 router.route("/:id")
-      .delete(validateObjectId,verifyToken,deleteCommentsController);
+      .delete(validateObjectId,verifyToken,deleteCommentsController)
+      .put(validateObjectId,verifyToken,updateCommentController);
 
 module.exports = router;
