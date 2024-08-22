@@ -23,7 +23,7 @@ const CommentSchema = new mongoose.Schema({
         required: true,
     },
 }, {
-    timeseries: true
+    timestamps: true
 });
 
 // Comment Model
