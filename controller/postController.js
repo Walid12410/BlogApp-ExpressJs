@@ -64,9 +64,11 @@ module.exports.getAllPostsController = asyncHandler(async (req, res) => {
         posts = await Post.find()
             .skip((pageNumber - 1) * POST_PER_PAGE)
             .limit(POST_PER_PAGE)
+            .sort({ createdAt: -1 })
             .populate("user", ["-password"]);
     } else if (category) {
         posts = await Post.find({ category })
+            .sort({ createdAt: -1 })
             .populate("user", ["-password"]);
     } else {
         posts = await Post.find().sort({ createdAt: -1 })
@@ -75,7 +77,7 @@ module.exports.getAllPostsController = asyncHandler(async (req, res) => {
     res.status(200).json(posts);
 });
 
-/**
+/** 
 * @desc Get Single Posts
 * @Route /api/posts/:id
 * @method GET
